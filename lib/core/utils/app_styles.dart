@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
+  static TextStyle getFont12(BuildContext context) => TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: Colors.grey,
+  );
   static TextStyle getFont14(BuildContext context) => TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,

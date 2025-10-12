@@ -75,7 +75,7 @@ class HomeView extends StatelessWidget {
                   ),
                   Container(
                     color: Theme.of(context).colorScheme.onSurface,
-                    padding: EdgeInsets.only(top:  16),
+                    padding: EdgeInsets.only(top: 16),
                     child: Column(
                       children: [
                         IconsWidget(),
@@ -83,7 +83,7 @@ class HomeView extends StatelessWidget {
                         Image.asset(
                           "assets/svgs/line.png",
                           width: 190,
-                          color: Color(0xff555555),
+                          color: Colors.grey,
                         ),
                         SizedBox(height: 16),
                         Text(
@@ -97,7 +97,7 @@ class HomeView extends StatelessWidget {
                         Image.asset(
                           "assets/svgs/line.png",
                           width: 190,
-                          color: Color(0xff555555),
+                          color: Colors.grey,
                         ),
                         SizedBox(height: 16),
                         Text(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_fashion_app/core/utils/app_styles.dart';
 import 'package:open_fashion_app/core/widgets/custom_appbar.dart';
 import 'package:open_fashion_app/core/widgets/custom_button.dart';
 import 'package:open_fashion_app/features/home/data/models/product_model.dart';
+import 'package:open_fashion_app/features/home/presentation/views_model/cubit/details_cubit.dart';
+import 'package:open_fashion_app/features/item_details/presentation/views/place_order_view.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/card_item.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/header.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/optional_widget.dart';
@@ -59,7 +62,7 @@ class ProductDetailView extends StatelessWidget {
                   style: AppStyles.getFont14(context),
                 ),
                 Text(
-                  "\$ ${product.price}",
+                  "\$ ${context.watch<DetailsCubit>().totalPrice(itemPrice: product.price)}",
                   style: AppStyles.getFont16(
                     context,
                   ).copyWith(color: Colors.green),
@@ -68,7 +71,15 @@ class ProductDetailView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          CustomButton(onTap: () {}, title: "checkout"),
+          CustomButton(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PlaceOrderView()),
+              );
+            },
+            title: "checkout",
+          ),
         ],
       ),
     );

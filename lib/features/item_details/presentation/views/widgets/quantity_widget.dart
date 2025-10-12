@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:open_fashion_app/features/home/presentation/views_model/cubit/details_cubit.dart';
 
 class QuantityWidget extends StatefulWidget {
   const QuantityWidget({super.key});
@@ -18,6 +20,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           onTap: () {
             setState(() {
               calc++;
+              context.read<DetailsCubit>().nItems = calc;
             });
           },
           icon: Icons.add,
@@ -35,6 +38,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
             } else {
               setState(() {
                 calc--;
+                context.read<DetailsCubit>().nItems = calc;
               });
             }
           },
@@ -53,7 +57,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           shape: BoxShape.circle,
           border: Border.all(color: Colors.grey),
         ),
-        child: Icon(icon, color: Colors.grey,size: 20,),
+        child: Icon(icon, color: Colors.grey, size: 20),
       ),
     );
   }

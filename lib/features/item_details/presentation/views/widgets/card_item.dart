@@ -5,7 +5,7 @@ import 'package:open_fashion_app/features/item_details/presentation/views/widget
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/spacing_text.dart';
 
 class CardItem extends StatelessWidget {
-  const CardItem({super.key, required this.product});
+  const CardItem({super.key, required this.product,});
   final ProductModel product;
 
   @override

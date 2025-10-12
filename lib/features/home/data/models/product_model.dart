@@ -14,25 +14,25 @@ class ProductModel {
   static List<ProductModel> products = [
     ProductModel(
       image: "assets/product/product6.png",
-      title: "October",
+      title: "Black dress",
       price: 110,
       description: "reversible angora cardigan",
     ),
     ProductModel(
       image: "assets/product/product1.png",
-      title: "October",
+      title: "Black shoes",
       price: 100,
       description: "reversible angora cardigan",
     ),
     ProductModel(
       image: "assets/product/product3.png",
-      title: "October",
+      title: "Pandora",
       price: 40,
       description: "reversible angora cardigan",
     ),
     ProductModel(
       image: "assets/product/product4.png",
-      title: "October",
+      title: "Golden Ring",
       price: 120,
       description: "reversible angora cardigan",
     ),
@@ -44,7 +44,7 @@ class ProductModel {
     ),
     ProductModel(
       image: "assets/product/product3.png",
-      title: "October",
+      title: "Pandora",
       price: 140,
       description: "reversible angora cardigan",
     ),

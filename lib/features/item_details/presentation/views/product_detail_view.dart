@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_fashion_app/core/utils/app_styles.dart';
 import 'package:open_fashion_app/core/widgets/custom_appbar.dart';
 import 'package:open_fashion_app/core/widgets/custom_button.dart';
 import 'package:open_fashion_app/features/home/data/models/product_model.dart';
@@ -9,6 +8,7 @@ import 'package:open_fashion_app/features/item_details/presentation/views/place_
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/card_item.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/header.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/optional_widget.dart';
+import 'package:open_fashion_app/features/item_details/presentation/views/widgets/total_price.dart';
 
 class ProductDetailView extends StatelessWidget {
   const ProductDetailView({super.key, required this.product});
@@ -54,28 +54,19 @@ class ProductDetailView extends StatelessWidget {
           Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Est. Total".toUpperCase(),
-                  style: AppStyles.getFont14(context),
-                ),
-                Text(
-                  "\$ ${context.watch<DetailsCubit>().totalPrice(itemPrice: product.price)}",
-                  style: AppStyles.getFont16(
-                    context,
-                  ).copyWith(color: Colors.green),
-                ),
-              ],
-            ),
+            child: TotalPrice(price: product.price),
           ),
           SizedBox(height: 30),
           CustomButton(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PlaceOrderView()),
+                MaterialPageRoute(
+                  builder: (_) => BlocProvider.value(
+                    value: context.read<DetailsCubit>(),
+                    child: PlaceOrderView(),
+                  ),
+                ),
               );
             },
             title: "checkout",

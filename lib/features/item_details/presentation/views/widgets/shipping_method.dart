@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/custom_container.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/custom_text.dart';
-import 'package:open_fashion_app/features/item_details/presentation/views/widgets/shipping_address_data.dart';
 
-class ShippingAddressWidget extends StatelessWidget {
-  const ShippingAddressWidget({super.key});
+class ShippingMethod extends StatelessWidget {
+  const ShippingMethod({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(text: "shipping address"),
+        CustomText(text: "Shipping Method"),
         SizedBox(height: 10),
-        ShippingAddressData(),
-        SizedBox(height: 10,),
-        CustomContainer(text: "Add shipping adress",icon: Icons.add,),
+        CustomContainer(
+          text: "Pickup at store",
+          isFree: true,
+          icon: Icons.keyboard_arrow_down,
+        ),
       ],
     );
   }

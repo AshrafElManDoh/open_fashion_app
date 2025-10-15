@@ -37,7 +37,10 @@ class PlaceOrderView extends StatelessWidget {
           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TotalPrice(price: context.watch<DetailsCubit>().totalPriceVar,isTotal: true,),
+            child: TotalPrice(
+              price: context.watch<DetailsCubit>().totalPriceVar,
+              isTotal: true,
+            ),
           ),
           CustomButton(onTap: () {}, title: "Place order"),
         ],

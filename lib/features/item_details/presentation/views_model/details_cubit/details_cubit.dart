@@ -8,6 +8,7 @@ class DetailsCubit extends Cubit<DetailsState> {
 
   int nItems = 1;
   double totalPriceVar = 0;
+  dynamic savedAddress ;
   double totalPrice({required double itemPrice}) {
     totalPriceVar = itemPrice * nItems;
     emit(TotalPriceChanged());

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_fashion_app/core/widgets/custom_appbar.dart';
 import 'package:open_fashion_app/core/widgets/custom_button.dart';
-import 'package:open_fashion_app/features/home/presentation/views_model/cubit/details_cubit.dart';
+import 'package:open_fashion_app/features/item_details/presentation/views_model/details_cubit/details_cubit.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/header.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/payment_method.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/widgets/shipping_address_widget.dart';

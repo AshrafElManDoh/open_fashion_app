@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_fashion_app/core/utils/app_styles.dart';
 import 'package:open_fashion_app/features/home/data/models/product_model.dart';
-import 'package:open_fashion_app/features/home/presentation/views_model/cubit/details_cubit.dart';
+import 'package:open_fashion_app/features/item_details/presentation/views_model/details_cubit/details_cubit.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views/product_detail_view.dart';
 
 class GridItem extends StatelessWidget {

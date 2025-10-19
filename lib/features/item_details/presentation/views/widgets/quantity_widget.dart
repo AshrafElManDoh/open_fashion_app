@@ -3,27 +3,39 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_fashion_app/features/item_details/presentation/views_model/details_cubit/details_cubit.dart';
 
 class QuantityWidget extends StatefulWidget {
-  const QuantityWidget({super.key});
+  const QuantityWidget({super.key, this.nItems, this.preventClick = false});
+  final int? nItems;
+  final bool preventClick;
 
   @override
   State<QuantityWidget> createState() => _QuantityWidgetState();
 }
 
 class _QuantityWidgetState extends State<QuantityWidget> {
-  int calc = 1;
+  late int calc;
+
+  @override
+  void initState() {
+    calc = widget.nItems ?? 1;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        icon(
-          onTap: () {
-            setState(() {
-              calc++;
-              context.read<DetailsCubit>().nItems = calc;
-            });
-          },
-          icon: Icons.add,
+        IgnorePointer(
+          ignoring: widget.preventClick,
+          child: icon(
+            onTap: () {
+              setState(() {
+                calc++;
+                context.read<DetailsCubit>().nItems = calc;
+              });
+            },
+            icon: Icons.add,
+          ),
         ),
 
         SizedBox(width: 20),
@@ -32,17 +44,20 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         SizedBox(width: 20),
-        icon(
-          onTap: () {
-            if (calc == 1) {
-            } else {
-              setState(() {
-                calc--;
-                context.read<DetailsCubit>().nItems = calc;
-              });
-            }
-          },
-          icon: Icons.remove,
+        IgnorePointer(
+          ignoring: widget.preventClick,
+          child: icon(
+            onTap: () {
+              if (calc == 1) {
+              } else {
+                setState(() {
+                  calc--;
+                  context.read<DetailsCubit>().nItems = calc;
+                });
+              }
+            },
+            icon: Icons.remove,
+          ),
         ),
       ],
     );

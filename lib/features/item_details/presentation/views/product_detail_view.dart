@@ -64,7 +64,7 @@ class ProductDetailView extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (_) => BlocProvider.value(
                     value: context.read<DetailsCubit>(),
-                    child: PlaceOrderView(),
+                    child: PlaceOrderView(product: product),
                   ),
                 ),
               );
